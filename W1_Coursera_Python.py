@@ -645,3 +645,9 @@ grade(55)
 grade(123)
 grade(0)
 
+# 2. Verify one of the Goldbach conjecture:
+# Positive int num (>= 4) within 2000 can be decomposed into the sum
+# of two prime numbers.
+# Every even numbers expression forming is such as 4 = 2+2
+# print 6 expreseions per line
+
