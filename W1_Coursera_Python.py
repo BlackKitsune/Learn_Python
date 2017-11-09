@@ -651,3 +651,305 @@ grade(0)
 # Every even numbers expression forming is such as 4 = 2+2
 # print 6 expreseions per line
 
+# 3. Program to let user input a number of apples, the unit price and
+# calculate the total
+
+while True:
+    try:
+        count = int(input("Enter count: "))
+        price = int(input("Enter price for each one: "))
+        Pay = count * price
+        print("The price is: ", Pay)
+        break
+    except ValueError:
+        print('Error, please enter numeric one. ')
+
+
+## A1 STANDARD LIBRARY FUNCTIONS **************************************
+
+# import math: mathematic operations
+import math
+dir(math)  # functions inside the math module
+math.pi
+math.e
+help(math.ceil)
+math.ceil(3.6)
+math.floor(3.6)
+math.pow(2,3)
+math.degrees(3.14)
+math.radians(180)
+
+# import os: interacting with the operation system
+import os
+os.getcwd()
+path = 'c:\\text'
+os.chdir(path)
+os.getcwd()
+os.rename(old_filename, new_filename)
+os.remove(filename)
+
+# import random: Generation of random values
+import random
+random.choice(['C++', 'Java', 'Python'])  # Choose one random from list
+random.randint(1,100)  # Choose one random int from range
+random.randrange(0,10,2)
+random.random()
+random.uniform(5, 10)  # floating number
+random.sample(range(100))  # returns a random list
+nums = [1, 2, 3, 4]
+random.shuffle(nums)  # reorders randomly the list
+random.choice(['Leonard', 'Sheldon', 'Penny', 'Howard', 'Raj', 'Bernadette', 'Amy'])
+
+# import datetime
+import datetime
+dir(datetime)  # functions inside datetime module
+from datetime import date
+date.today()
+from datetime import time
+tm = time(23, 20, 35)
+print(tm)
+from datetime import datetime
+dt = datetime.now()
+# formats: a day of the week, b month, c day, ...
+print(dt.strftime('%a, %b %c %d %Y %H:%M'))
+# Time stamp epoch 1971-01-01 00:00:00 is time = 0s
+dt = datetime(2017, 6, 6, 2, 29)
+print(dt)
+ts = dt.timestamp()  # to epoch
+print(datetime.fromtimestampp(ts))
+
+## A2 EXCEPTIONS ************************************************************
+
+# How to treat errors: 1/0 will lead to an exception
+# >>> 1/0
+# Traceback (most recent call last): --> Mesagge of error (traceback)
+#   File "<input>", line 1, in <module>
+# ZeroDivisionError: division by zero  --> Type of exception
+
+# We can sue __builtins__() for looking to exceptions types
+dir(__builtins__)  # all built in exceptions classes
+
+if y != 0:
+    print(x/y)
+else:
+    print('Division by zero')
+
+# try - except format
+num1 = int(input('Enter first number: '))
+num2 = int(input('Enter second number: '))  # Can be 0 or a letter
+print(num1/num2)  # Leading to exception
+
+try:
+    num1 = int(input('Enter first number: '))
+    num2 = int(input('Enter second number: '))  # Can be 0 or a letter
+    print(num1/num2)  # Leading to exception
+except ValueError:
+    print('Please input a digit!')
+
+except ZeroDivisionError as err:  # err = error cause
+    print('The second number can not be zero!')
+    print(err)
+
+try:
+    num1 = int(input('Enter first number: '))
+    num2 = int(input('Enter second number: '))  # Can be 0 or a letter
+    print(num1/num2)  # Leading to exception
+
+except (ValueError, ZeroDivisionError):  # Several exceptions
+    print('Invalid input!')
+
+# General case
+try:
+    num1 = int(input('Enter first number: '))
+    num2 = int(input('Enter second number: '))  # Can be 0 or a letter
+    print(num1/num2)  # Leading to exception
+
+except Exception as err:  # General case
+    print('Something went wrong!')
+    print(err)
+
+# try - except - else
+try:
+    num1 = int(input('Enter first number: '))
+    num2 = int(input('Enter second number: '))  # Can be 0 or a letter
+    print(num1/num2)  # Leading to exception
+
+except (ValueError, ZeroDivisionError):  # Several exceptions
+    print('Invalid input!')
+else:
+    print('Everything is OK')
+
+# Retry option with while/if loop  -- break statement
+while True:
+    try:
+        num1 = int(input('Enter first number: '))
+        num2 = int(input('Enter second number: '))  # Can be 0 or a letter
+        print(num1/num2)  # Leading to exception
+        break  # Add the break statement
+    except (ValueError, ZeroDivisionError):  # Several exceptions
+        print('Invalid input!')
+
+# break statement is not necesarly inside the try block
+while True:
+    try:
+        num1 = int(input('Enter first number: '))
+        num2 = int(input('Enter second number: '))  # Can be 0 or a letter
+        print(num1/num2)  # Leading to exception
+    except (ValueError, ZeroDivisionError):  # Several exceptions
+        print('Invalid input!')
+    else:
+        break  # Add the break statement
+
+a_list = [1,2,3,4,5]
+i = 0
+while True:
+    try:
+        print(a_list[i])
+    except IndexError:
+        print('Index Error')
+        break
+    else:
+        i += 1
+
+# Complete code with finally
+def finallyTest():
+    while True:
+        try:
+            num1 = int(input('Enter first number: '))
+            num2 = int(input('Enter second number: '))  # Can be 0 or a letter
+            print(num1/num2)  # Leading to exception
+            return 1
+        except Exception as err:  # Several exceptions
+            print('Invalid input!')
+            print(err)
+            return 0
+        finally:
+            print('It is a finally clause.')
+result = finallyTest()
+print(result)
+
+# Context manager (with statement)
+try:
+    f = open('data.txt')
+    for line in f:
+        print(line, end= ' ')
+except IOError:
+    print('Cannot open the file')
+finally:
+    f.close()
+
+with open('data.txt') as f:  # The same as before
+    for line in f:
+        print(line, end='')
+
+# Exercise: Program to let user input a number of apples, the unit price and
+# calculate the total. With exception error for non numerical inputs.
+
+while True:
+    try:
+        count = int(input("Enter count: "))
+        price = int(input("Enter price for each one: "))
+        Pay = count * price
+        print("The price is: ", Pay)
+        break
+    except ValueError:
+        print('Error, please enter numeric one. ')
+
+## TEST: CHARACTERISTICS OF A RECURSIVE ALGORITHM ***************************
+
+# Figure out the result of the following program (do not use a computer)
+def proc(n):
+    if n < 0:
+        print('-', end = '')
+        n = -n
+    if n  // 10:
+        proc(n  //  10 )
+    print(n % 10,  end = '')
+
+proc(-345 )
+
+# output -345 (first if prints - and second if 345)
+
+## QUIZZ *********************************************************************
+
+k = 50
+while k > 1:
+    print(k)
+    k = k // 2
+
+apples = 100
+while apples >= 1:
+    if apples < 9:
+        print("rest apples are less than 9")
+        break
+    apples -= 9
+
+def location(city, province):
+    print('%s belongs to %s province' % (city, province))
+
+location(province = 'Jiangsu', city = 'Nanjing')
+
+location('Jiangsu', 'Nanjing')
+
+location('Nanjing', 'Jiangsu')
+
+location(city = 'Nanjing', province = 'Jiangsu')
+
+def test(f, a, b):
+    print(f(a, b))
+
+test((lambda x,y: x ** 3 + y), 2, 3)
+
+## w1 PROGRAMMING ASSIGNMENT ************************************************
+
+# Find out the 6th Monisen number
+# A number M is a Monisen number if M = 2**P-1 and both M and P
+# are prime numbers.
+# Ex: if P = 5, M = 2**P-1=31, 5 and 31 are both prime numbers
+# so 31 is a Monisen number
+
+from math import sqrt
+
+def prime(num):
+    # Be sure to have an integer num
+    num = int(num)
+
+    # Less than 2 no prime numbers
+    if num <=1:
+        return False
+
+    # If the element is % 2,...
+    N = int(sqrt(num))
+    for i in range(2, N+1):
+        if num % i == 0:
+            return False
+            break
+
+    # if you have not returned False
+    # Then is prime number
+    return True
+
+def monisen(n):
+    if n >= 1:
+        i = 0
+        num = 2
+
+        while True:
+            m = 2 ** num - 1
+
+            if prime(num) and prime(m):
+                i += 1
+            num += 1
+
+            if i == n:
+                break
+
+        return m
+    else:
+        return 0
+
+print(monisen(6))  # 131071
+
+
+
+
