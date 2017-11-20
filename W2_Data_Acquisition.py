@@ -1,5 +1,7 @@
 ## W2 DATA ADQUISITION AND PRESENTATION **********************************************
 
+## LOCAL DATA ACQUISITION ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ## Read data from files (open file, do something, close the files)
 # file_obj = open(filenam, mode='r', buffering= -1, ...)
 # mode = 'r', 'w', 'a' to read, write and append (with a b 'rb' for binary files)
@@ -79,5 +81,25 @@ with open('companies.txt', 'a+') as f:
 # input(), print() functions with ask/display in the screen
 # stdin/stdout, and sterr are the same in sys library
 import sys
-sys.stout.write('Hell')
+sys.stout.write('Hello')
+
+## NETWORK DATA RETRIEVAL ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## Retrieve data from the network is now by "crawl" 
+# Data on the web can change dinamicaly
+# The acquisition of data on the web (crawl) can  be divided on two stages
+# 1. Scrape: urlib (urlib.request), Request (small, medium web), Scrapy (large web)
+# 2. Parse: BeautifulSoup and re
+
+# REQUEST: request.get() (https://www.python-request.org)
+r = requests.get('https://api.github.com/user', auth=('user', 'pass))
+r.status_code   # 200
+r.headers['content-type']   # 'application/json; charset=utf8'
+r.encoding   # utf-8
+r.text  # u'{'type':'user'...'  
+r.json
+# Scrap the comments of the little prince book on a website
+
+                                                      
+
 
