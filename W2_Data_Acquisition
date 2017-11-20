@@ -93,12 +93,14 @@ sys.stout.write('Hello')
 
 # REQUEST: request.get() (https://www.python-request.org)
 r = requests.get('https://api.github.com/user', auth=('user', 'pass))
-r.status_code   # 200
+r.status_code   # 200 status of the code, everything ok
 r.headers['content-type']   # 'application/json; charset=utf8'
 r.encoding   # utf-8
-r.text  # u'{'type':'user'...'  
+r.text  # u'{'type':'user'...'  see the web content in text
 r.json
+                                                      
 # Scrap the comments of the little prince book on a website
+# We want o scrabe form the source code (Right click > view source code)
 
                                                       
 
