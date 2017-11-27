@@ -1,6 +1,6 @@
 #++++++++++++ PROGRAMMING WITH PYTHON ++++++++++++++++++++++
 
-### TAKE A BREAK
+### TAKE A BREAK +++++++++++++++++++++++++++++++++++++++++++
 # Program that plays your favorite song every two hours
 # to force you to make a break while working
 
@@ -28,4 +28,37 @@ while (break_count < total_breaks):
     break_count = break_count + 1
     
     
+
+### SECRET MESSAGE  ++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Programm that rename a group of files
+# Step 1: Get all the files names
+# Step 2: For each file: rename the files
+# Step 3: Take care of Exceptions
+
+import os
+from string import maketrans
+
+def rename_files():
+    #(1) get file names from a given folder
+    # Take the content of the folder into a list
+    # os.listdir(r"D:\examples") for window machine
+    file_list = os.listdir("D:/examples")
+    print(file_list)
+
+    # Debugging Error: The system cannot find the file
+    saved_path = os.getcwd()     # current working directory
+    print("Current Working Directory is " + saved_path)
+    # change the working directory
+    os.chdir("D:/examples")
+
+    #(2) rename each file inside the folder
+    for file_name in file_list:
+        print("Old Name - " + file_name)
+        print("New name - " + file_name.maketrans(None, "0123456789"))
+        os.rename(file_name, file_name.maketrans(None, "0123456789"))
+        
+rename_files()
+
+## EDGE CASE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
