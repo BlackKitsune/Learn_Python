@@ -1,6 +1,8 @@
 #++++++++++++ PROGRAMMING WITH PYTHON ++++++++++++++++++++++
 
-### TAKE A BREAK +++++++++++++++++++++++++++++++++++++++++++
+### FUNCTIONS ++++++++++++++++++++++++++++++++++++++++++++++
+
+### TAKE A BREAK
 # Program that plays your favorite song every two hours
 # to force you to make a break while working
 
@@ -29,7 +31,7 @@ while (break_count < total_breaks):
     
     
 
-### SECRET MESSAGE  ++++++++++++++++++++++++++++++++++++++++++++++++
+### SECRET MESSAGE
 
 # Programm that rename a group of files
 # Step 1: Get all the files names
@@ -60,5 +62,81 @@ def rename_files():
         
 rename_files()
 
-## EDGE CASE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+### CLASES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## DRAW SQUARE +++++++++++++++++++++++++++++++++++++
+# Draw art with Python
+
+# Draw by thinking how the turtle will move
+# Inside turtle library, there is a class Turtle
+# CLASS is a box with properties inside that start
+# with __init__ function
+
+import turtle
+
+def draw_square(some_turtle):
+    for i in range(1,5):
+        some_turtle.forward(100)
+        some_turtle.right(90)
+
+
+def draw_art():
+    # Open a window to draw on it
+    window = turtle.Screen()
+    window.bgcolor("red")
+
+    # Create an instance of the class Turtle
+    # with turtle shape, color yellow...
+    # Brad and Angie will be instances of the class
+    # The class is the blueprint of a building
+    # The instance are the characteristics of that
+    # blueprint
+
+    # Create the turtle Brad - Draws a square
+    brad = turtle.Turtle()
+    brad.shape("turtle")
+    brad.color("yellow")
+    brad.speed(2)
+    draw_square(brad)
+
+    # Create the turtle Angie - Draws a circle
+    angie = turtle.Turtle()
+    angie.shape("arrow")
+    angie.color("blue")
+    angie.circle(100)
+
+    # Create the turtle triangle - Draws a triangle
+    triangle = turtle.Turtle()
+    triangle.shape("turtle")
+    triangle.color("black")
+    # Move the turtle forward a distance
+    sides = 3
+    count = 1
+    while (count <= sides):
+        triangle.backward(100)
+        triangle.right(120)
+        count += 1
+
+    # Close the window on a click
+    window.exitonclick()
+
+# draw_art()
+
+def draw_square_art():
+    window = turtle.Screen()
+    window.bgcolor("red")
+    # Create the turtle Brand - Draw a circle with square
+    brad = turtle.Turtle()
+    brad.shape("turtle")
+    brad.color("yellow")
+    brad.speed(2)
+
+    for i in range(1,37):
+        draw_square(brad)
+        brad.right(10)
+
+    window.exitonclick()
+
+draw_square_art()
+
 
