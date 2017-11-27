@@ -139,4 +139,31 @@ def draw_square_art():
 
 draw_square_art()
 
+## DRAW A FLOWER
+import turtle
+
+def draw_flower():
+    window = turtle.Screen()
+    window.bgcolor("white")
+
+    # Create the turtle ifg - Draw flower
+    ifg = turtle.Turtle()
+    ifg.shape("turtle")
+    ifg.color("black")
+    ifg.speed(20)
+
+    # Draw flower
+    for i in range(36):
+        for side in range(2):
+            ifg.forward(100)
+            ifg.right(60)
+            ifg.forward(100)
+            ifg.right(120)
+        ifg.right(10)
+    ifg.right(90)
+    ifg.forward(350)
+
+    window.exitonclick()
+
+draw_flower()
 
