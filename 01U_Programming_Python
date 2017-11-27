@@ -1,0 +1,31 @@
+#++++++++++++ PROGRAMMING WITH PYTHON ++++++++++++++++++++++
+
+### TAKE A BREAK
+# Program that plays your favorite song every two hours
+# to force you to make a break while working
+
+# Repeat 3x:
+#       1. Wait 2 hrs
+#       2. Open a browser
+
+# Import all necessary libraries
+import time
+import webbrowser
+
+total_breaks = 1
+break_count = 0
+
+# Start to count with the current time time.ctime()
+print("This program started on " + time.ctime())
+
+# Reapeat 3 times
+while (break_count < total_breaks):
+    # Wait for a number of seconds
+    time.sleep(7200)
+    # Open the browser
+    webbrowser.open("https://www.youtube.com/watch?v=ngzC_8zqInk")
+    # Increase the counter
+    break_count = break_count + 1
+    
+    
+
