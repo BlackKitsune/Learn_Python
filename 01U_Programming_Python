@@ -167,3 +167,106 @@ def draw_flower():
 
 draw_flower()
 
+## SEND A TEXT MESSAGE
+# Send text messages toyour phone number
+# Using twilio external librarie
+
+# from twilio.rest import TwilioRestClient
+from twilio import rest
+# client is a class of TwilioRestClient winth a phone number
+
+# Your Account Sid and Auth Token from twilio.com/user/account
+account_sid = "AAcd59kd0lw90ow2kejoiwujeoiu"
+auth_token = "faie49jrlwkjeosklejwk"
+client = rest.TwilioRestClient(account_sid, auth_token)
+
+message = client.sms.messages.create(
+    body = "My name is Isabel",
+    to = "+34678665544",         # Replace with your phone number
+    from_ =  "+34678923456")     # Replace with your Twilio number
+print(message.sid)
+
+## PROFANITY EDITOR
+# Programm that checks for bad words and sends
+# a message of alert
+# Built in functions like open() will be used
+# You don't need to import any library
+# open() returns and object of file type
+
+import urllib
+
+# (1) Read text
+# (2) Check the text for curse words
+
+# (1) Read text
+def read_text():
+    quotes = open("C:/detect_profanity/movie_quotes.txt")
+    contents_of_file = quotes.read()
+    print(contents_of_file)
+    quotes.close()
+
+# (2) Check the text for curse words
+# we will use the curse file search www.WDYL.com from google
+# http://www.wdylike.appspot.com/?q=shit the word at the end
+# It will take false if no bad words are found
+# connection will be an instance of the file like object
+
+def check_profanity(text_to_check):
+    connection = urllib.urlopen("http://www.wdylike.appspot.com/?q=" + text_to_check)
+    output = connection.read()
+    if "true" in output:
+        print("Profanity Alert!!")
+    elif "false" in output:
+        print("This document has no curse words!!")
+    else:
+        print("Could not scan the document properly")
+    connection.close()
+
+read_text()
+
+### CREATE YOUR OWN CLASSES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## MOVIE WEBSITE
+# Programm that opens a website created by us
+# Plays the trailer for each movie in the website
+# For conventions for programmers from google:
+# https://google.github.io/styleguide/pyguide.html
+
+# (1) Create a class of movie for each instance
+# When defining clases first capital letter
+class Movie():
+    # __init__() is the class constructor function
+    # self is the instance being created
+    def __init__(self, movie_title, movie_storyline, poster_image, trailer):
+        self.title = movie_title
+        self.storyline = movie_storyline
+        self.poster_image_url = poster_image
+        self.trailer_youtube_url = trailer
+        
+
+# (2) show_trailer function that show the trailer
+
+
+
+
+
+
+
+
+## DATA BASE FOR MOVIE
+# File in the same folder as media.py
+# In this file we define the list of movies
+import media
+
+toy_story = media.Movie("Toy Story",
+                        "A Story of a boy and his toys that come to life",
+                        "https://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
+                        "https://www.youtube.com/watch?v=KYz2wyBy3kc")
+
+print(toy_story.storyline)
+
+avatar = media.Movie("Avatar",
+                     "A marine on a alien planet",
+                     "https://upload.wikimedia.org/wikipedia/en/b/b0/Avatar-Teaser-Poster.jpg",
+                     "https://www.youtube.com/watch?v=5PSNL1qE6VY")
+
+print(avatar.storyline)
