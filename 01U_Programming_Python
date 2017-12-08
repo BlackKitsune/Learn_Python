@@ -241,12 +241,14 @@ class Movie():
         self.storyline = movie_storyline
         self.poster_image_url = poster_image
         self.trailer_youtube_url = trailer
-        
-
+      
 # (2) show_trailer function that show the trailer
+    def show_trailer(self, ):
+        webbrowser.open(self.trailer_youtube_url)
 
-
-
+# Programm to create the webpage with the data base
+# Define an array with the movies in the data base
+movies = [toy_story, avatar, interstellar]
 
 
 
@@ -270,3 +272,11 @@ avatar = media.Movie("Avatar",
                      "https://www.youtube.com/watch?v=5PSNL1qE6VY")
 
 print(avatar.storyline)
+
+interstellar = media.Movie("Interstellar",
+                           "A man saves humanity travelling in space - time",
+                           "https://en.wikipedia.org/wiki/File:Interstellar_film_poster.jpg",
+                           "https://www.youtube.com/watch?v=2LqzF5WauAw")
+
+print(interstellar.storyline)
+interstellar.show_trailer()
