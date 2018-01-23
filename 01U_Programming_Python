@@ -250,9 +250,7 @@ class Movie():
 # Define an array with the movies in the data base
 movies = [toy_story, avatar, interstellar]
 
-
-
-
+(...)
 
 ## DATA BASE FOR MOVIE
 # File in the same folder as media.py
@@ -280,3 +278,137 @@ interstellar = media.Movie("Interstellar",
 
 print(interstellar.storyline)
 interstellar.show_trailer()
+
+
+## CLASS VARIABLES
+# Instance Variables: In the class "Movie" there are IV like title, storyline, poster_image...
+# We want to create variables with the same values for all the instances
+
+# Ex: This is the possible valid ratings for all movies in the data base defined at the level
+# of the class and outside of the init
+
+# (1) Create a class of movie for each instance
+# When defining clases first capital letter
+class Movie():
+    # _dock_ variable will have the documentation inside """
+    """ This class provides a way to store movie related information """
+
+    # Define the CLASS variable for the class movie
+    # If it is going to be constant --> With capital letters
+    VALID_RATINGS = ['G', 'PG', 'PG_13', 'R']
+    
+    # __init__() is the class constructor function
+    # self is the instance being created
+    def __init__(self, movie_title, movie_storyline, poster_image, trailer):
+        self.title = movie_title
+        self.storyline = movie_storyline
+        self.poster_image_url = poster_image
+        self.trailer_youtube_url = trailer
+      
+# (2) show_trailer function that show the trailer
+    def show_trailer(self, ):
+        webbrowser.open(self.trailer_youtube_url)
+        
+# (3) Data base for the movie on another file
+import media
+
+toy_story = media.Movie("Toy Story",
+                        "A Story of a boy and his toys that come to life",
+                        "https://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
+                        "https://www.youtube.com/watch?v=KYz2wyBy3kc")
+
+avatar = media.Movie("Avatar",
+                     "A marine on a alien planet",
+                     "https://upload.wikimedia.org/wikipedia/en/b/b0/Avatar-Teaser-Poster.jpg",
+                     "https://www.youtube.com/watch?v=5PSNL1qE6VY")
+
+interstellar = media.Movie("Interstellar",
+                           "A man saves humanity travelling in space - time",
+                           "https://en.wikipedia.org/wiki/File:Interstellar_film_poster.jpg",
+                           "https://www.youtube.com/watch?v=2LqzF5WauAw")
+
+print(media.Movie.VALID_RATINGS)
+print(meida.Movie.__dock__)
+        
+# In python all classes come with a kind of prexisting variables like _doc_
+# _dock_ will give the documentation of a class
+turtle.Turtle._doc_
+print(meida.Movie.__doc__)  # for the Movies class
+print(media.Movie.__name__)  # Name of the class (Movies)
+Print(media.Movie.__module__)  # Name of the module in which this class was defined (media)
+
+## INHERITANCE: Classes that inherit some variables from the parent class to the child class
+# inheritance.py
+class Parent():
+    def __init__(self):
+    # Print that tell us every time the parent class is called
+    print("Parent constructor called")
+        self.last_name = last_name
+        self.eye_color = eye_color
+
+# class_name (inheritance_class) will inheritance all the variables
+class Child(Parent):
+    def __init__(self, last_name, eye_color, number_of_toys):
+        print("Child contructor called")
+        self.number_of_toys = number_of_toys
+
+# Elements of the class go in another file
+billy_cyrus = Parent("Cyrus", "blue")
+print(billy_cyrus.last_name)
+
+miley_cyrus = Child("Cyrus", "Blue", 5)
+print(miley_cyrus.last_name)  # will print Cyrus
+print(miley_cyrus.number_of_toys)  # will print 5
+
+# Output:
+Child constructor called
+Parent constructor called
+Cyrus
+5
+
+# Note: Use inheritance with the Movies and a new TvShow() from a Video() parent class
+class Video():
+    - title
+    - duration
+ 
+ class Movie(Video)  # Inherits variables from Video() class
+    - storyline
+    - poster_image
+    - youtube_trailer
+    
+    def show_trailer()
+    
+ class TVShow(Video):  # Inherits variables from Video() class
+    - season
+    - episode
+    - tv_station
+    
+    def get_local_listing()
+ 
+# Use inheritance
+class Parent():
+    def __init__(self):
+    # Print that tell us every time the parent class is called
+    print("Parent constructor called")
+        self.last_name = last_name
+        self.eye_color = eye_color
+    
+    def show_info(self):
+        print("Last Name - "+self.last_name)
+        print("Eye color - "+self.eye.color)
+
+class Child(Parent):
+    def __init__(self, last_name, eye_color, number_of_toys):
+        print("Child contructor called")
+        self.number_of_toys = number_of_toys
+
+# Elements of the class go in another file
+billy_cyrus = Parent("Cyrus", "blue")
+miley_cyrus = Child("Cyrus", "Blue", 5)
+
+billy_cyrus.show_info()
+
+
+
+
+
