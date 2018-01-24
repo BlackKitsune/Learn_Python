@@ -290,7 +290,7 @@ interstellar.show_trailer()
 # (1) Create a class of movie for each instance
 # When defining clases first capital letter
 class Movie():
-    # _dock_ variable will have the documentation inside """
+    # _doc_ variable will have the documentation inside """
     """ This class provides a way to store movie related information """
 
     # Define the CLASS variable for the class movie
@@ -328,10 +328,10 @@ interstellar = media.Movie("Interstellar",
                            "https://www.youtube.com/watch?v=2LqzF5WauAw")
 
 print(media.Movie.VALID_RATINGS)
-print(meida.Movie.__dock__)
+print(meida.Movie.__doc__)
         
 # In python all classes come with a kind of prexisting variables like _doc_
-# _dock_ will give the documentation of a class
+# _doc_ will give the documentation of a class
 turtle.Turtle._doc_
 print(meida.Movie.__doc__)  # for the Movies class
 print(media.Movie.__name__)  # Name of the class (Movies)
@@ -361,10 +361,10 @@ print(miley_cyrus.last_name)  # will print Cyrus
 print(miley_cyrus.number_of_toys)  # will print 5
 
 # Output:
-Child constructor called
-Parent constructor called
-Cyrus
-5
+#Child constructor called
+#Parent constructor called
+#Cyrus
+#5
 
 # Note: Use inheritance with the Movies and a new TvShow() from a Video() parent class
 class Video():
