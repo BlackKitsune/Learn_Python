@@ -401,12 +401,23 @@ class Child(Parent):
     def __init__(self, last_name, eye_color, number_of_toys):
         print("Child contructor called")
         self.number_of_toys = number_of_toys
+    
+    def show_info(self):
+        print("Last Name - "+self.last_name)
+        print("Eye color - "+self.eye.color)
+        print("Number of colors - '+self.number_of_toys)
 
 # Elements of the class go in another file
 billy_cyrus = Parent("Cyrus", "blue")
 miley_cyrus = Child("Cyrus", "Blue", 5)
 
-billy_cyrus.show_info()
+billy_cyrus.show_info()  # print name and eye color directly
+miley.cyrus.show_info()  # print name and eye color inheritance from parent class
+
+# Once the same show_info is created in the class Child it will use the
+# show_info 
+
+miley.cyrus.show_info()  # print name, eye color and number of toys from Child
 
 
 
